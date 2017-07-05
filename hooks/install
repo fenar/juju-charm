@@ -45,7 +45,7 @@ service openbaton-nse stop
 
 
 # increasing timeout of nfvo-plugin communication
-sed -i "s/nfvo.plugin.timeout=300000/nfvo.plugin.timeout=500000/" $NFVO_PROPERTIES
+sed -i "s/nfvo.plugin.timeout=300000/nfvo.plugin.timeout=800000/" $NFVO_PROPERTIES
 # FIXME: disable quota-check
 sed -i "s/nfvo.quota.check=true/nfvo.quota.check=false/" $NFVO_PROPERTIES
 # FIXME: allow infinite quota
@@ -53,7 +53,7 @@ sed -i "s/nfvo.vim.drivers.allowInfiniteQuota=false/nfvo.vim.drivers.allowInfini
 # FIXME: set public ip for monitoring
 sed -i "s/#nfvo.monitoring.ip=localhost/nfvo.monitoring.ip=$(unit-get public-address)/" $NFVO_PROPERTIES
 # increasing ems wait time
-sed -i "s/vnfm.ems.start.timeout = 250/vnfm.ems.start.timeout = 500/" $GENERIC_VNFM_PROPERTIES
+sed -i "s/vnfm.ems.start.timeout = 250/vnfm.ems.start.timeout = 4500/" $GENERIC_VNFM_PROPERTIES
 
 # modifying default zabbix user-zbx=Admin
 sed -i "s/user-zbx=admin/user-zbx=Admin/" $MONITORING_PROPERTIES
